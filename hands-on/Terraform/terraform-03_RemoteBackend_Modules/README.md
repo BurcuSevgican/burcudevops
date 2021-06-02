@@ -111,7 +111,7 @@ terraform init
 terraform apply
 ```
 
-- Because of using S3 bucket for backend, run `terraform init` again. It will ask you to copy the existing tfstate file to s3. yes.
+- Because of using S3 bucket for backend, run `terraform init` again. It will ask you to copy the existing tfstate file to s3. y es.
 
 - Go to the `backend.tf` file make the changes.
 ```bash
