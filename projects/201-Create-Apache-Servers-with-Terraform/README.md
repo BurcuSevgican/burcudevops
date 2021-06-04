@@ -55,6 +55,7 @@
 
 ```text
 001-creating-servers-with-tTerraform (folder)
+
 |
 |----readme.md          # Given to the students (Definition of the project)
 |----create_apache.sh   # Given to the students (Bash Script)
