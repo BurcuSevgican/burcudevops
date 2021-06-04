@@ -13,7 +13,60 @@ At the end of the this hands-on training, students will be able to;
 - Make the changes in the `main.tf` file.
 
 ```bash
+provider "aws" {
+  region  = "us-east-1"
+}
 
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "3.38.0"
+    }
+  }
+}
+
+variable "ec2-name" {
+  default = "oliver-ec2"
+}
+
+variable "ec2-type" {
+  default = "t2.micro"
+}
+
+variable "ec2-ami" {
+  default = "ami-0742b4e673072066f"
+}
+
+resource "aws_instance" "tf-ec2" {
+  ami           = var.ec2-ami
+  instance_type = var.ec2-type
+  key_name      = "mk"
+  tags = {
+    Name = "${var.ec2-name}-💻🎯🎉"
+  }
+}
+
+variable "s3-bucket-name" {
+  default = "oliver-s3-bucket-variable-addwhateveryouwant"
+}
+
+resource "aws_s3_bucket" "tf-s3" {
+  bucket = var.s3-bucket-name
+  acl    = "private"
+}
+
+output "tf-example-public_ip" {
+  value = aws_instance.tf-ec2.public_ip
+}
+
+output "tf-example-private-ip" {
+  value = aws_instance.tf-ec2.private_ip
+}
+
+output "tf-example-s3" {
+  value = aws_s3_bucket.tf-s3[*]
+}
 ```
 
 ```bash
