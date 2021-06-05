@@ -113,7 +113,7 @@ ping -c 4 clarus2nd
 - Stop and delete the containers
 
 ```bash
-docker stop clarus1st clarus2nd
+
 docker rm clarus1st clarus2nd
 ```
 
@@ -211,7 +211,8 @@ ping -c 4 172.17.0.2
 
 ```bash
 docker stop clarus1st clarus2nd clarus3rd clarus4th
-docker rm clarus1st clarus2nd clarus3rd clarus4th
+
+
 ```
 
 - Delete `clarusnet` network
