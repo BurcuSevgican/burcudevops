@@ -36,6 +36,7 @@ sudo yum install java-devel
 - Install Git
   
 ```bash
+
 sudo yum install git -y
 ```
 - **Configure ssh connection between master and slave nodes.**
@@ -46,8 +47,12 @@ sudo yum install git -y
 ```bash
 sudo su - jenkins
 ```
+ # cat /etc/passwd with this command we can see all users and processes(and what we see is ec2 user can use bin/bash but other users cant,,so with this  command we change the bash) 
+ sudo su - jenkins -s /bin/bash
 
-  - Generate a public and private key with keygen.
+ whoami                      (you will see jenkins)
+
+  - Generate a public and private key with keygen. ssh key generator
 
 ```bash
 ssh-keygen
@@ -67,7 +72,8 @@ cat id_rsa.pub
 ```
   - Select and copy all the codes in id_rsa.pub.
 
-- Go to the /root/.ssh folder on the slave node instance.
+- Go to the /root/.ssh folder on the slave node instance. because  jenkins always connect with root
+
 
 ```bash
 sudo su
@@ -90,6 +96,9 @@ ssh root@<slave-node-ip-number>
 exit
 ```
 
+# i couldnt connect then instructor used 
+sudo su - jenkins -s /bin/bash 
+ssh root@<slave-node-ip-number>
 - **The second one is to copy agent file from Jenkins server to slave node.**
 
 - Go to the "/root" folder on the slave node instance. Create a folder under "/root" and name it as "bin". Get agent file from Jenkins Master server.
