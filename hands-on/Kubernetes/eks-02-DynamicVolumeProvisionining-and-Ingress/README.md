@@ -110,10 +110,10 @@ $ eksctl create cluster --region us-east-1 --node-type t2.medium --nodes 2 --nod
 or
 
 $ eksctl create cluster \
- --name my-cluster \
- --region us-east-1 \
+ --name my-cluster  \
+ --region us-east- \
  --nodegroup-name my-nodes \
- --node-type t2.medium \
+--node-type t2.medium \
  --nodes 2 \
  --nodes-min 2 \
  --nodes-max 3 \

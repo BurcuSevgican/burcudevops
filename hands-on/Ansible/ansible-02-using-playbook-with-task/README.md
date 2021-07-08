@@ -104,7 +104,7 @@ ansible-playbook playbook1.yml
        dest: /home/ec2-user/testfile1
 
 - name: Copy for ubuntu
-  hosts: ubuntuserver
+  hosts: ubuntuservers
   tasks:
    - name: Copy your file to the ubuntuservers
      copy:
@@ -261,14 +261,12 @@ vim playbook6.yml
   hosts: webservers
   tasks:
     - name: installing httpd and wget
-        yum:
-        pkg: ['httpd', 'wget']
+      yum:
+        pkg: "{{ item }}"
         state: present
-
-    - name: start httpd
-      service:
-        name: httpd
-        state: started
+      with_items:
+        - httpd
+        - wget
 ```
 
 - Run the yaml file.
@@ -349,7 +347,7 @@ vi playbook8.yml
       loop:
         - john
         - aaron
-      when: ansible_os_family == "Debian" or ansible_os_family == "20.04"
+      when: ansible_os_family == "Debian" or ansible_distribution_version == "20.04"
 ```
 
 - Run the playbook8.yml
