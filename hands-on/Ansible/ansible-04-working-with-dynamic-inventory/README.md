@@ -239,3 +239,4 @@ $ ansible-playbook user.yml -i inventory_aws_ec2.yml
 
 
 
+v

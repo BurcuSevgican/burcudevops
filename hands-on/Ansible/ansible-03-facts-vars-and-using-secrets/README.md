@@ -237,10 +237,7 @@ node1                      : ok=2    changed=1    unreachable=0    failed=0    s
 node2                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ```
 
-- To verrify it
-
-```bash
-ansible all -b -m command -a "grep tyler /etc/shadow"
+- To verrify i
 ```
 ```
 node1 | CHANGED | rc=0 >>

@@ -377,7 +377,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: web
+      name: web 
   template:
     metadata:
       labels:
