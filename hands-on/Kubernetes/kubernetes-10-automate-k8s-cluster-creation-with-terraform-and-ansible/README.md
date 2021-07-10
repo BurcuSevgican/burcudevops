@@ -198,7 +198,7 @@ kubectl get node
 - Run the command below to check if we have the LoadBalancer of the ingress:
 
 ```bash
-kubectl get svc -A
+ls
 ```
 
 - Go to the address of the ingress load balancer.
