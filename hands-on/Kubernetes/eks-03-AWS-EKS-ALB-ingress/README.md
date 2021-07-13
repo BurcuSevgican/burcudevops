@@ -112,14 +112,14 @@ aws configure
 - Create an EKS cluster via `eksctl`. It will take a while.
 
 ```bash
-eksctl create cluster --region us-east-2 --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --name mycluster
+eksctl create cluster --region us-east-1 --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --name mycluster
 
 or
 
 eksctl create cluster \
  --name mycluster \
  --version 1.18 \
- --region us-east-2 \
+ --region us-east-1 \
  --nodegroup-name my-nodes \
  --node-type t2.medium \
  --nodes 1 \
@@ -140,8 +140,17 @@ $ eksctl create cluster --help
 
 ## Part 3 - Ingress and AWS LoadBalancer Controller (ALB)
 
-- Firstly, we deploy the AWS Load Balancer Controller to our Amazon EKS cluster according to [AWS Load Balancer Controller user guide](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
+- Firstly, we deploy the AWS Load Balancer Controller to our Amazon EKS cluster according to [AWS Load Balancer Controller user guide](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html) # we got the command from here
+.....
+ curl -o iam_policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.2.0/docs/install/iam_policy.json
+....
 
+ then we used:
+ .....
+ aws iam create-policy \
+    --policy-name AWSLoadBalancerControllerIAMPolicy \
+    --policy-document file://iam_policy.json
+....
 - Verify that the controller is installed.
 
 ```bash
@@ -254,7 +263,7 @@ ingress-clarusshop   <none>   *       k8s-default-ingressc-38a2e90a69-465630546.
 
 - For now, our application is working on http. Now, we add an host name and return the http to https.
 
-- Firstly, bind ingress address to an host nane in the route53 service.
+- Firstly, bind ingress address to an host name in the route53 service.
 
 - Then update the ingress.yaml as below. Don't forgot to change certificate-arn.
 
