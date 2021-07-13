@@ -102,14 +102,14 @@ sudo yum install -y git
 mkdir <repo>
 cd <repo>
 git init
-git remote add origin <origin-url>
+git remote add origin <origin-url>   
 git config core.sparseCheckout true
 echo "subdirectory/under/repo/" >> .git/info/sparse-checkout  # do not put the repository folder name in the beginning
 git pull origin <branch-name>
 ```
 
-- Go into the cloned folder, find the folders named ```terraform```, ```ansible```, ```ingress-yaml-files``` and  move them under your home folder.
-
+- Go into the cloned folder, find the folders named ```terraform```, ```ansible```, ```ingress-yaml-files``` and  move them under your home folder.# it is under the "kubernetes-10-automate-k8s-cluster-creation-with-terraform-and-ansible"
+    
 ```bash
 mv terraform ansible ingress-yaml-files ~/
 ```
@@ -123,7 +123,7 @@ mv terraform ansible ingress-yaml-files ~/
 aws configure
 ```
 
-- Cd into the ```terraform``` folder.
+- Cd into the ```terraform``` folder. 
 
 ```bash
 cd ~/terraform

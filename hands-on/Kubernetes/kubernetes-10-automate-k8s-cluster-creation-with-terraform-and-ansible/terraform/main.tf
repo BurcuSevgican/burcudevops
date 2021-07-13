@@ -132,8 +132,8 @@ resource "aws_instance" "kube-master" {
     instance_type = "t2.medium"
     iam_instance_profile = module.iam.master_profile_name
     vpc_security_group_ids = [aws_security_group.matt-kube-master-sg.id, aws_security_group.matt-kube-mutual-sg.id]
-    key_name = "mattskey"
-    subnet_id = "subnet-c41ba589"
+    key_name = "Firstkey"
+    subnet_id = "subnet-e8dabb8e"
     availability_zone = "us-east-1a"
     tags = {
         Name = "kube-master"
@@ -149,8 +149,8 @@ resource "aws_instance" "worker-1" {
     instance_type = "t2.medium"
         iam_instance_profile = module.iam.worker_profile_name
     vpc_security_group_ids = [aws_security_group.matt-kube-worker-sg.id, aws_security_group.matt-kube-mutual-sg.id]
-    key_name = "mattskey"
-    subnet_id = "subnet-c41ba589"
+    key_name = "Firstkey"
+    subnet_id = "subnet-e8dabb8e"
     # subnet_id = "subnet-077c9758"
     availability_zone = "us-east-1a"
     tags = {
@@ -167,8 +167,8 @@ resource "aws_instance" "worker-2" {
     instance_type = "t2.medium"
     iam_instance_profile = module.iam.worker_profile_name
     vpc_security_group_ids = [aws_security_group.matt-kube-worker-sg.id, aws_security_group.matt-kube-mutual-sg.id]
-    key_name = "mattskey"
-    subnet_id = "subnet-c41ba589"
+    key_name = "Firstkey"
+    subnet_id = "subnet-e8dabb8e"
     # subnet_id = "subnet-3ccd235a"
     availability_zone = "us-east-1a"
     tags = {
