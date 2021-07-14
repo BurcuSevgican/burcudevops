@@ -284,6 +284,7 @@ sudo mv ~/kube-apiserver.yaml /etc/kubernetes/manifests/
 
 ```bash
 sudo systemctl restart kubelet
+systemctl status kubelet
 ```
 
 - Wait a while and check the app is running.
