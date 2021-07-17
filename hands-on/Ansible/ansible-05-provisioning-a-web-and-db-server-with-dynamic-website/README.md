@@ -260,7 +260,7 @@ $ ansible-playbook playbook.yml
 
 - Create a file named ```.my.cnf``` under home directory on controller node.
 
-- Paste the content below.
+- Paste the content below. configuration of database
 
 ```conf
 [client]
