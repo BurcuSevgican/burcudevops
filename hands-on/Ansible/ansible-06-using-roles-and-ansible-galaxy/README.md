@@ -113,7 +113,7 @@ $ ansible-playbook ping-playbook.yml
 
 ## Part 2 - Using Ansible Roles
 
-- Install ngnix server and restart it with using Ansible roles.
+- Install ngnix server and restart it with using Ansible roles.it will create path
 
 ansible-galaxy init /home/ec2-user/ansible/roles/apache
 
